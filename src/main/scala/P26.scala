@@ -7,7 +7,7 @@ object P26 {
     case sublist@(h :: t) => f(sublist) ::: flatMapSublists(t)(f)
   }
 
-  def combinations(n: Int, ls: List[Symbol]): List[List[Symbol]] = {
+  def combinations[A](n: Int, ls: List[A]): List[List[A]] = {
     if (n == 0) List(Nil)
     else flatMapSublists(ls) { sl =>
       combinations(n - 1, sl.tail) map { sl.head :: _ }
